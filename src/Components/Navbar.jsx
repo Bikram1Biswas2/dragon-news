@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <div className="flex justify-between items-center">
             <div></div>
-            <div className="space-x-3">
+            <div className="space-x-6">
                 <Link to="/">Home</Link>
                 <Link to="about">About</Link>
                 <Link to="career">Career</Link>
@@ -14,7 +14,7 @@ const Navbar = () => {
                 <div>
                     <img src={userLogo} alt="" />
                 </div>
-                <button className="btn btn-neutral rounded-none">Login</button>
+                <Link to="/auth/login" className="btn btn-neutral rounded-none">Login</Link>
             </div>
         </div>
     );
