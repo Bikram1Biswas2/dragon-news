@@ -8,7 +8,7 @@ const Navbar = () => {
     const {user} = useContext(AuthContext)
     return (
         <div className="flex justify-between items-center">
-            <div>{user.name}</div>
+            <div>{user && user.email}</div>
             <div className="space-x-6">
                 <Link to="/">Home</Link>
                 <Link to="about">About</Link>
