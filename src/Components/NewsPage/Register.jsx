@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
@@ -6,6 +6,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Register = () => {
 
   const {createNewUser,setUser} = useContext(AuthContext)
+  const [error,setError] = useState({})
 
   const handleRegister = (e)=> {
     e.preventDefault()
@@ -15,6 +16,9 @@ const Register = () => {
     const photo = form.get("photo")
     const email = form.get("email")
     const password = form.get("password")
+    if(password.length<6){
+      setError({...error,password:"Password must be 6 or more letters"})
+    }
     console.log({name,photo,email,password});
 
     createNewUser(email,password)
@@ -56,6 +60,11 @@ const Register = () => {
             </label>
             <input type="password" name="password" placeholder="password" className="input input-bordered" required />
           </div>
+          {
+            error.password && ( <label className="label">
+              <span className="label-text text-red-600">{error.password}</span>
+            </label>)
+          }
           <div className="form-control mt-6">
             <button className="btn btn-neutral rounded-none">Register</button>
           </div>
