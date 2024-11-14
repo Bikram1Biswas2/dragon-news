@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaShareAlt, FaEye, FaStar } from 'react-icons/fa';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 const NewsCard = ({ news }) => {
   return (
@@ -40,7 +41,7 @@ const NewsCard = ({ news }) => {
         {moment(news.published_date).format("dddd, MMMM Do, YYYY")} | Tag Cloud Tags: {news.details}
       </p>
 
-      <p className="text-red-500 font-semibold cursor-pointer">Read More</p>
+      <Link to={`/news/${news._id}`} className="text-red-500 font-semibold cursor-pointer">Read More</Link>
 
       {/* Footer */}
       <div className="flex items-center justify-between mt-4">
